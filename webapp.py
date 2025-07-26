@@ -1,9 +1,6 @@
 import pandas as pd
 import streamlit as st
 from insert_reports import get_project
-import warnings
-
-warnings.filterwarnings("ignore")
 
 st.title("Visualise your skore Project")
 
