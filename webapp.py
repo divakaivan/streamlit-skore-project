@@ -41,12 +41,14 @@ if ml_task == "regression":
         show_actual_vs_predicted = st.checkbox("📈 Actual vs Predicted plot")
 
     if show_prediction_error:
-        fig = report.metrics.prediction_error().plot()
-        st.pyplot(fig)
+        disp = report.metrics.prediction_error()
+        _ = disp.plot()
+        st.pyplot(disp.figure_)
 
     if show_actual_vs_predicted:
-        fig = report.metrics.prediction_error().plot(kind="actual_vs_predicted")
-        st.pyplot(fig)
+        disp = report.metrics.prediction_error()
+        _ = disp.plot(kind="actual_vs_predicted")
+        st.pyplot(disp.figure_)
 
 elif ml_task == "binary-classification":
     df.index = df.index.set_levels(
@@ -72,12 +74,14 @@ elif ml_task == "binary-classification":
         st.pyplot(fig.figure_)
 
     if show_roc_curve:
-        fig = report.metrics.roc().plot()
-        st.pyplot(fig)
+        disp = report.metrics.roc()
+        _ = disp.plot()
+        st.pyplot(disp.figure_)
 
     if show_precision_recall:
-        fig = report.metrics.precision_recall().plot()
-        st.pyplot(fig)
+        disp = report.metrics.precision_recall()
+        _ = disp.plot()
+        st.pyplot(disp.figure_)
 
 else:
     st.warning(f"Unsupported ML task: {ml_task}")
