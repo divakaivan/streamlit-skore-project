@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 from insert_reports import get_project
 
+st.set_option('deprecation.showPyplotGlobalUse', False)
 st.title("Visualise your skore Project")
 
 
